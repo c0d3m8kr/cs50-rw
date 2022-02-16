@@ -40,7 +40,29 @@ int main(void)
         printf("list2[%i]: %i\n", j, list2[j]);
     }
 
+    free(list);
     list = list2;
+
+    int *tmp = realloc(list, 5 * sizeof(int));
+    if (tmp == NULL)
+    {
+        free(list);
+        return 1;
+    }
+
+    for (int k = 0; k < 5; k++)
+    {
+        tmp[k] = list[k];
+    }
+    tmp[4] = 99;
+
+    free(list);
+    list = tmp;
+
+    for (int j = 0; j < 5; j++)
+    {
+        printf("list[%i]: %i\n", j, list[j]);
+    }
 
     free(list);
     return 0;
