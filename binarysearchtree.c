@@ -52,7 +52,7 @@ int main()
 
     print_tree(tree);
 
-    if (search_tree(tree, 4))
+    if (search_tree(tree, 100))
     {
         printf("Found it!\n");
     }
@@ -60,6 +60,7 @@ int main()
     {
         printf("Did not find it!!\n");
     }
+
     free_tree(tree);
 
     return 0;
@@ -69,7 +70,7 @@ void print_tree(node *root)
 {
     if (root == NULL)
     {
-        return 1;
+        return;
     }
     print_tree(root->left);
     printf("%i\n", root->number);
